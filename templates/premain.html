@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Compressor</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #010107; /* Dark navy blue */
+            color: #fbfaf6; /* Golden yellow */
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card {
+            background-color: rgba(189, 189, 222, 0.1); /* Semi-transparent background */
+            color: #fbfaf6; /* Golden yellow */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); /* Subtle box shadow */
+            max-width: 80%;
+            transition: transform 0.3s;
+            z-index: 1;
+            position: relative;
+            border: 2px solid #fff; /* White border */
+        }
+
+        .card:hover {
+            transform: translateY(-10px); /* Lift on hover */
+        }
+
+        h1 {
+            font-size: 3rem; /* Increased font size */
+            font-weight: bold;
+            margin: 0 0 20px; /* Added more bottom margin */
+        }
+
+        p {
+            font-size: 1rem;
+            margin: 10px 0;
+        }
+
+        .bton {
+            font-weight: bold;
+            font-size: 1rem;
+            background: #e5e4e2; /* Golden yellow */
+            color: #010111; /* Dark navy blue */
+            border: none;
+            padding: 10px 25px;
+            transition: transform 0.5s;
+            margin: 20px;
+            cursor: pointer;
+            text-transform: uppercase;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .bton:hover {
+            transform: scale(1.05);
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 20px;
+            width: 100%;
+            color: #FFD700; /* Golden yellow */
+            font-size: 0.8rem;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #FFD700; /* Golden yellow */
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .symbol {
+            font-size: 4rem; /* Increased font size */
+            color: #FFD700; /* Golden yellow */
+            position: absolute;
+            top: -70px; /* Adjusted position */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <span class="symbol">✨</span> <!-- Fist and bolt symbol -->
+        <h1>File Compressor</h1>
+        <p>Choose the compression algorithm:</p>
+        <div>
+            <a href="/hcd"><button class="bton">Huffman</button></a>
+            <a href="/lzwcd"><button class="bton">LZW</button></a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Made with &#x1F49A; by <a href="#">Jatin Sharma</a> ,<a href="#">Navyu Thakur</a> and <name style="color: #bef55b">Binit Gautam></name></p>
+    </div>
+</body>
+</html>

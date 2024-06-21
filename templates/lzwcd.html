@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- <script src="/static/three.min.js"></script>
+    <script src="/static/vanta.globe.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        VANTA.GLOBE({
+          el: "#wrapper",
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.0,
+          minWidth: 200.0,
+          scale: 1.0,
+          scaleMobile: 1.0,
+        })
+      });
+    </script> -->
+    <title>File Compressor</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Oswald:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style type="text/css">
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        font-family: "Oswald", sans-serif;
+        overflow: hidden; /* Hide overflow to remove scroll bar */
+      }
+      #wrapper {
+        min-height: 100%;
+      }
+      .heading {
+        font-family: "Kalam", cursive;
+      }
+      .bton {
+        font-weight: 600;
+        font-size: 16px;
+        background: #f1eded;
+        color: #043b35;
+        border: transparent;
+        padding: 8px 25px;
+        transition: transform 0.5s;
+      }
+      .bton:hover {
+        font-weight: 600;
+        cursor: pointer;
+        /* background: #bef55b;
+        color: rgb(255, 17, 235); */
+        text-decoration: none;
+        transform: translateY(-8px);
+      }
+    </style>
+    <!--[if lte IE 6]>
+      <style type="text/css">
+        #container {
+          height: 100%;
+        }
+      </style>
+    <![endif]-->
+  </head>
+
+  <body
+    style="
+      background-color:#010f0d;
+      align-items: center;
+      margin-top: -30px;
+    "
+  >
+    <div style="color: #f7f1f1; text-align: center" id="wrapper">
+      <h1 style="font-size: 60px; font-weight: 800; padding-top: 120px">
+        FILE COMPRESSION
+      </h1>
+      <p class="heading" style="margin-top: -10px">using</p>
+      <h1
+        style="
+          color: #f1e8e8;
+          font-weight: 700;
+          font-size: 64px;
+          margin-top: -10px;
+        "
+      >
+        <i>LZW</i>
+      </h1>
+
+      <a href="/lzwcompress"><button class="bton">Compress</button></a
+      >&#160;&#160;&#160;&#160;&#160;
+      <a href="/lzwdecompress"><button class="bton">Decompress</button></a
+        >&#160;&#160;&#160;&#160;&#160;
+      <a href="/lzwabout"><button class="bton">About</button></a>
+      <div style="margin-top: 10vh">
+        <center>
+          <p style="color: rgb(239, 245, 238)">
+            Made with 💚 by <name style="color: #b1928d">Jatin Sharma</name> 
+            <name style="color: #bfd890">Navyu Thakur</name> and <name style="color: #bef55b">Binit Gautam></name>
+          </p>
+        </center>
+      </div>
+    </div>
+  </body>
+</html>

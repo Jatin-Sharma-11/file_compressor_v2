@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LZW Compression and Decompression</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #000; /* Black background */
+            color: #fff; /* White text color */
+        }
+        h1 {
+            color: rgb(227, 243, 10); /* Red heading color */
+        }
+        h2{
+            color:#0adfd5
+        }
+        p {
+            color: #999; /* Light gray paragraph color */
+        }
+        code {
+            background-color: #111; /* Dark gray code background */
+            color: #329f13; /* White code text color */
+            padding: 2px 5px;
+            border-radius: 3px;
+            display: block;
+            white-space: pre;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>LZW Compression and Decompression</h1>
+    <p>LZW (Lempel-Ziv-Welch) is a lossless data compression algorithm that replaces repetitive sequences of data with shorter codes. It initializes a dictionary with all possible characters, then iteratively combines existing sequences to create new codes, resulting in efficient compression without losing original data.
+    </p>
+    <h2>Compression</h2>
+    
+<code style="color: cornflowerblue;">
+Steps for the Compression are as below:
+
+Step:1: Initialize a dictionary with all possible characters in the input data.
+Step:2: Initialize an empty string as the current sequence.
+Step:3: Repeat until all input data is processed: 
+  a.Append the next character from the input to the current sequence. 
+  b. If the current sequence is in the dictionary, continue appending characters until the sequence is no longer in the dictionary. 
+  c. Output the code corresponding to the longest sequence found in the dictionary. 
+  d. Add the new sequence (excluding the last character) to the dictionary with a new code. 
+  e. Set the current sequence to the last character.
+Step:4: Output the code corresponding to the final sequence.
+Step:5: The output consists of a sequence of codes representing the compressed data.
+</code>
+<p>LZW compression involves encoding input data by replacing repeating sequences with shorter codes from a dictionary, enabling efficient storage and transmission of information. This process iteratively builds the dictionary as it encounters new patterns in the input, resulting in a compressed output.
+
+
+
+
+
+</p>
+
+    <code>
+
+# PseudoCode for compression using lzw
+
+function LZW_Compress(input):
+    dict, seq, code, result = {chr(i): i for i in range(256)}, "", 256, []
+    for char in input:
+        if seq + char in dict: seq += char
+        else: result.append(dict[seq]), dict[seq + char], seq, code = code, code + 1, char
+    if seq: result.append(dict[seq])
+    return result
+    </code>
+    <h2>Decompression</h2>
+<code style="color: cornflowerblue;">
+Steps for the Decompression are as below:   
+
+Step:1: Initialize a dictionary with codes mapping to characters for the initial 256 ASCII characters.
+Step:2: Read the first code from the compressed data stream and convert it to a character to start the decompressed output.
+Step:3: While there are remaining codes in the compressed data stream:
+  a. Read the next code from the stream.
+  b. If the code is in the dictionary, retrieve its corresponding string.
+  c. If the code is not in the dictionary, generate the string by concatenating the previous string with its first character.
+  d. Add the retrieved or generated string to the decompressed output.
+  e. Update the dictionary with the new entry corresponding to the previous string concatenated with the first character of the generated string.
+Step:4: Repeat steps 3 until all codes in the compressed data stream are processed, producing the complete decompressed output.
+</code>
+    <p>LZW decompression reverses the compression process by reconstructing the original data from the encoded sequence of codes. It builds the dictionary as it reads the input codes, gradually expanding them into their corresponding sequences, ultimately restoring the uncompressed data.</p>
+    <code>
+
+# PseudoCode for decompression using lzw
+
+function LZW_Decompress(input):
+    dict, seq, result, code = {i: chr(i) for i in range(256)}, chr(input[0]), chr(input[0]), 256
+    for num in input[1:]:
+        entry = dict.get(num, seq + seq[0])
+        result += entry
+        dict[code], seq, code = seq + entry[0], entry, code + 1
+    return result;
+    </code>
+</body>
+</html>
